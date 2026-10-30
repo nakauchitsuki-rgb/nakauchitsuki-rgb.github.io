@@ -1,0 +1,12 @@
+
+{
+  "name": "揚げパン屋台 POS",
+  "short_name": "揚げパンPOS",
+  "description": "文化祭用の揚げパン会計アプリ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f4f6",
+  "theme_color": "#d97706",
+  "lang": "ja"
+}

@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>揚げパン屋台 POS</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>揚げパン屋台 POS</h1>
+</header>
+
+<nav>
+  <button class="tab active" data-page="order">
+    注文・会計
+  </button>
+  <button class="tab" data-page="cooking">
+    作成中 <span id="pending-count">0</span>
+  </button>
+  <button class="tab" data-page="history">
+    履歴
+  </button>
+  <button class="tab" data-page="settings">
+    商品設定
+  </button>
+</nav>
+
+<!-- 注文・会計 -->
+<main id="order" class="page active">
+  <section class="product-section">
+    <h2>商品選択</h2>
+    <div id="products"></div>
+  </section>
+
+  <section class="checkout-section">
+    <h2>注文内容</h2>
+    <div id="cart"></div>
+
+    <div class="total">
+      合計 <span id="total">0</span>円
+    </div>
+
+    <h3>お預かり金額</h3>
+    <input
+      type="number"
+      id="payment"
+      min="0"
+      inputmode="numeric"
+      placeholder="金額を入力"
+    >
+
+    <div class="change">
+      お釣り：<span id="change">0</span>円
+    </div>
+
+    <button id="checkout">会計確定</button>
+    <button id="clear">注文クリア</button>
+  </section>
+</main>
+
+<!-- 作成中 -->
+<main id="cooking" class="page single-page">
+  <section>
+    <h2>作成中の商品</h2>
+    <p class="description">
+      商品ごとに1個ずつ提供済みにできます。
+    </p>
+    <div id="cooking-list"></div>
+  </section>
+</main>
+
+<!-- 履歴 -->
+<main id="history" class="page single-page">
+  <section>
+    <h2>注文履歴</h2>
+
+    <div class="sales">
+      売上合計：
+      <span id="sales-total">0</span>円
+    </div>
+
+    <div id="history-list"></div>
+  </section>
+</main>
+
+<!-- 商品設定 -->
+<main id="settings" class="page single-page">
+  <section>
+    <h2>商品設定</h2>
+    <p class="description">
+      商品名や値段を変更できます。
+    </p>
+
+    <div id="settings-list"></div>
+
+    <h2>新しい商品を追加</h2>
+
+    <div class="add-product">
+      <input
+        type="text"
+        id="new-name"
+        placeholder="商品名"
+      >
+
+      <input
+        type="number"
+        id="new-price"
+        min="0"
+        placeholder="価格（円）"
+      >
+
+      <button id="add-product-button">
+        商品を追加
+      </button>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
