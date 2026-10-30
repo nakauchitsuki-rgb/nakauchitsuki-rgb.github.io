@@ -85,6 +85,16 @@
       <span id="sales-total">0</span>円
     </div>
 
+    <h3>商品ごとの販売個数</h3>
+    <p class="description">保存されているすべての会計確定済み注文を集計しています。提供前の商品も含みます。</p>
+    <div class="sales-summary">
+      <table class="sales-table">
+        <thead><tr><th scope="col">商品名</th><th scope="col">販売個数</th></tr></thead>
+        <tbody id="product-sales-list"></tbody>
+        <tfoot><tr><th scope="row">合計</th><td><span id="sales-count">0</span>個</td></tr></tfoot>
+      </table>
+    </div>
+
     <div id="history-list"></div>
   </section>
 </main>

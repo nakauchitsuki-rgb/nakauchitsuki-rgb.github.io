@@ -390,7 +390,41 @@ function renderCooking() {
 }
 
 // ===== 注文履歴 =====
+function renderProductSales() {
+  const totals = new Map(products.map(product => [
+    product.id, { name: product.name, count: 0 }
+  ]));
+
+  orders.forEach(order => {
+    order.items.forEach(item => {
+      // 商品IDで集計するため、名前や価格を変更しても個数を引き継ぐ。
+      const key = item.productId ?? `legacy:${item.name}`;
+      if (!totals.has(key)) {
+        totals.set(key, { name: item.name, count: 0 });
+      }
+      totals.get(key).count++;
+    });
+  });
+
+  const container = document.getElementById("product-sales-list");
+  container.innerHTML = "";
+  let totalCount = 0;
+  totals.forEach(product => {
+    const row = document.createElement("tr");
+    const name = document.createElement("th");
+    name.scope = "row";
+    name.textContent = product.name;
+    const count = document.createElement("td");
+    count.textContent = `${product.count.toLocaleString()}個`;
+    row.append(name, count);
+    container.appendChild(row);
+    totalCount += product.count;
+  });
+  document.getElementById("sales-count").textContent = totalCount.toLocaleString();
+}
+
 function renderHistory() {
+  renderProductSales();
   const container =
     document.getElementById("history-list");
 

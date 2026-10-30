@@ -192,6 +192,39 @@ button {
   margin-bottom: 20px;
 }
 
+.sales-summary {
+  margin-bottom: 28px;
+}
+
+.sales-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales-table th,
+.sales-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.sales-table tbody th {
+  font-weight: normal;
+}
+
+.sales-table td,
+.sales-table thead th:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.sales-table thead,
+.sales-table tfoot {
+  background: #fff7ed;
+  font-weight: bold;
+}
+
 .empty {
   color: #777;
   padding: 20px 0;

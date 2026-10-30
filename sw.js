@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "agepan-pos-v1";
+const CACHE_NAME = "agepan-pos-v2";
 
 const APP_FILES = [
   "./",
