@@ -92,8 +92,15 @@ function renderProducts() {
   products.forEach(product => {
     const button = document.createElement("button");
     button.className = "product";
-    button.textContent =
-      `${product.name}\n${product.price}円`;
+    const photoId = ((Number(product.id) - 1) % 8 + 8) % 8 + 1;
+    button.style.setProperty("--product-photo", `url("./assets/products/product-${photoId}.jpg")`);
+    const name = document.createElement("span");
+    name.className = "product-name";
+    name.textContent = product.name;
+    const price = document.createElement("span");
+    price.className = "product-price";
+    price.textContent = `${product.price.toLocaleString()}円`;
+    button.append(name, price);
 
     button.addEventListener("click", () => {
       addProduct(product.id);
